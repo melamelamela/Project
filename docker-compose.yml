@@ -12,6 +12,8 @@ services:
 
   sqlite-db:
     image: nouchka/sqlite3:latest
+    stdin_open: true         # permet d’ouvrir une session interactive
+    tty: true                # permet une interface interactive aussi
     volumes:
       - sqlite-data:/data
     
