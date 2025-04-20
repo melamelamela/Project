@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  # Service pour exécuter le script (Script Runner)
+  script-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile  # Assurez-vous que le fichier Dockerfile existe dans le répertoire courant
+    volumes:
+      - ./scripts:/app/scripts  # Monte un dossier local pour les scripts à exécuter
+    depends_on:
+      - sqlite-db  # Le service SQLite doit être prêt avant d'exécuter le script
+
+  # Service SQLite3 pour le stockage des données
+  sqlite-db:
+    image: nouchka/sqlite3:latest  # Utilisation d'une image Docker SQLite3 disponible sur Docker Hub
+    command: sqlite3 /data/db.sqlite3  # Démarre SQLite3 et crée une base de données à cet emplacement
+    volumes:
+      - sqlite-data:/data  # Volume persistant pour les données SQLite3
