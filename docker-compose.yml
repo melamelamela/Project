@@ -4,14 +4,14 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ./scripts:/app/scripts
+      - .:/app
+    #le service S1 qui exécute les scripts s'exécute après le démarrage du service qui stocke les données
     depends_on:
       - sqlite-db
     command: python /app/scripts/monscript.py
 
   sqlite-db:
     image: nouchka/sqlite3:latest
-    command: sqlite3 /data/db.sqlite3
     volumes:
       - sqlite-data:/data
     
