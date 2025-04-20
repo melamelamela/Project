@@ -18,8 +18,3 @@ RUN pip install --upgrade pip \
 # Exécuter le script Python lors du démarrage du conteneur
 CMD ["python", "hello-world.py"]
 
-
-
-
-# Installer les dépendances SQLite3 pour Python
-RUN pip install sqlite3
