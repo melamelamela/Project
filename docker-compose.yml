@@ -8,7 +8,7 @@ services:
     #le service S1 qui exécute les scripts s'exécute après le démarrage du service qui stocke les données
     depends_on:
       - sqlite-db
-    command: python /app/scripts/monscript.py
+    command: python /app/monscript.py
 
   sqlite-db:
     image: nouchka/sqlite3:latest
