@@ -5,7 +5,7 @@ import sqlite3
 import os
 
 # Le chemin vers la base partagée (le volume est monté dans /app/data)
-# db_path = "/app/data/example.db"
+# db_path = "/app/data/sales_analyse.db"
 
 # Connexion à la base (elle sera créée si elle n'existe pas)
 #conn = sqlite3.connect(db_path)
@@ -35,23 +35,3 @@ import os
 #conn.commit()
 #conn.close()
 
-
-# Connexion à la base de données (remplace 'ma_base.db' par le nom de ta base)
-conn = sqlite3.connect('users.db')
-
-# Création d'un curseur
-cur = conn.cursor()
-
-# Nom de la table à supprimer
-nom_table = 'ma_table_a_supprimer'
-
-# Exécuter la commande pour supprimer la table
-cur.execute(f"DROP TABLE IF EXISTS {nom_table};")
-
-# Sauvegarder les changements
-conn.commit()
-
-# Fermer la connexion
-conn.close()
-
-print(f"La table {nom_table} a été supprimée.")
