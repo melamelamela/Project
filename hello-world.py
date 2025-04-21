@@ -4,34 +4,21 @@ print("hello-world S1")
 import sqlite3
 import os
 
-# Le chemin vers la base partagée (le volume est monté dans /app/data)
-# db_path = "/app/data/sales_analyse.db"
-
-# Connexion à la base (elle sera créée si elle n'existe pas)
-#conn = sqlite3.connect(db_path)
-##cur = conn.cursor()
 
 
-# Créer une table
-#cur.execute("""
-#CREATE TABLE IF NOT EXISTS users (
-#    id INTEGER PRIMARY KEY AUTOINCREMENT,
-#    name TEXT NOT NULL
+# Création/connexion à la base de données SQLite
+#db_name = "analyse_ventes.db"
+#conn = sqlite3.connect(db_name)
+#cursor = conn.cursor()
+
+# 1. Création des tables nécessaires
+
+# Exmeple de création de table 
+# Table des Magasins
+#cursor.execute('''
+#CREATE TABLE IF NOT EXISTS Produits (
+ #   ID Magasin produit REAL NOT NULL,
+ #   nom TEXT NOT NULL,
+ #   prix REAL NOT NULL,
 #)
-#""")
-
-# Ajouter un utilisateur
-#cur.execute("INSERT INTO users (name) VALUES (?)", ("Alice",))
-
-# Lire les données
-#cur.execute("SELECT * FROM users")
-#ows = cur.fetchall()
-
-#print("Contenu de la table 'users' :")
-#for row in rows:
-#    print(row)
-
-# Sauvegarder et fermer
-#conn.commit()
-#conn.close()
-
+#''')
